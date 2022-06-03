@@ -1,0 +1,62 @@
+use [northwindDW]
+
+insert into [northwindDW].[edw].[DimCustomer]
+	([CustomerId]
+	,[CompanyName]
+	,[City]
+	,[Region]
+	,[PostalCode]
+	,[Country])
+SELECT [CustomerID]
+	,[CompanyName]
+	,[City]
+	,[Region]
+	,[PostalCode]
+	,[Country]
+FROM [northwindDW].[stage].[DimCustomer]
+
+
+insert into [northwindDW].[edw].[DimEmployee]
+	([EmployeeId]
+	,[LastName]
+	,[FirstName]
+	,[Title]
+	,[City]
+	,[Region]
+	,[PostalCode]
+	,[Country])
+SELECT [EmployeeId]
+	,[LastName]
+	,[FirstName]
+	,[Title]
+	,[City]
+	,[Region]
+	,[PostalCode]
+	,[Country]
+FROM [northwindDW].[stage].[DimEmployee]
+
+
+insert into [northwindDW].[edw].[DimProduct]
+	([ProductId]
+	,[ProductName]
+	,[SupplierId]
+	,[SupplierName]
+	,[CategoryId]
+	,[CategoryName]
+	,[Discontinued])
+SELECT [ProductId]
+	,[ProductName]
+	,[SupplierId]
+	,[SupplierName]
+	,[CategoryId]
+	,[CategoryName]
+	,[Discontinued]
+FROM [northwindDW].[stage].[DimProduct]
+
+
+insert into [northwindDW].[edw].[DimShipper]
+	([ShipperId]
+	,[ShipperName])
+SELECT [ShipperId]
+	,[ShipperName]
+FROM [northwindDW].[stage].[DimShipper]
